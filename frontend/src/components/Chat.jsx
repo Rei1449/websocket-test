@@ -7,7 +7,7 @@ const Chat = () => {
   const userName = localStorage.getItem("name")
   const roomId = location.state["roomId"]
 
-  const wb = new WebSocket(`ws://localhost:8081/ws/${userName}/room/${roomId}`)
+  const wb = new WebSocket(`ws://websocket-test-vercel-5b169e9cae22.herokuapp.com/ws/${userName}/room/${roomId}`)
   return (
     <>
       <div>ルームナンバー:{location.state["roomId"]}</div>
