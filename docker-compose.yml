@@ -1,0 +1,42 @@
+version: "3.9"
+
+volumes:
+  postgres_data_websocket:
+
+services:
+  frontend:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    container_name: websocket_frontend
+    tty: true
+    volumes:
+      - .:/app
+      # - node_modules:/app/frontend/node_modules
+    ports:
+      - 5174:5173
+    command: yarn dev
+
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    container_name: websocket_backend
+    ports:
+      - 8081:8080
+    tty: true
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: postgres-db_websocket
+    volumes:
+      - postgres_data_websocket:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 5433:5432
