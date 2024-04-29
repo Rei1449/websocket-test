@@ -3,11 +3,11 @@ import SendText from "./SendText"
 
 const Chat = () => {
   const location = useLocation()
-  console.log(location.state["roomId"])
+  // console.log(location.state["roomId"])
   const userName = localStorage.getItem("name")
   const roomId = location.state["roomId"]
 
-  const wb = new WebSocket(`wss://websocket-test-vercel-5b169e9cae22.herokuapp.com/ws/${userName}/room/${roomId}`)
+  const wb = new WebSocket(`wss://websocket-test-fa2gxhztza-an.a.run.app/ws/${userName}/room/${roomId}`)
   return (
     <>
       <div>ルームナンバー:{location.state["roomId"]}</div>

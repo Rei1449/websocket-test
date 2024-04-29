@@ -15,3 +15,5 @@ DateTime
 replicate
 google-generativeai
 websockets
+redis
+pusher

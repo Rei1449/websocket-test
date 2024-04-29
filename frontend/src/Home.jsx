@@ -14,7 +14,7 @@ const Home = () => {
   }
 
   const createRoom = async() => {
-    const res = await fetch("https://websocket-test-vercel-5b169e9cae22.herokuapp.com/create_room", {
+    const res = await fetch("https://websocket-test-fa2gxhztza-an.a.run.app/create_room", {
       method: "POST",
       headers: {
 				"Content-Type": "application/json",
@@ -30,7 +30,7 @@ const Home = () => {
   console.log(userName)
 
   const entryRoom = async() => {
-    const res = await fetch("https://websocket-test-vercel-5b169e9cae22.herokuapp.com/entry", {
+    const res = await fetch("https://websocket-test-fa2gxhztza-an.a.run.app/entry", {
       method: "POST",
       headers: {
 				"Content-Type": "application/json",

@@ -13,7 +13,7 @@ const SendText = (props) => {
 
   const sendMessage = async(event) => {
     event.preventDefault();
-    const res = await fetch("https://websocket-test-vercel-5b169e9cae22.herokuapp.com/msg", {
+    const res = await fetch("https://websocket-test-fa2gxhztza-an.a.run.app/msg", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

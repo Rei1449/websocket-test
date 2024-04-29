@@ -28,15 +28,12 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - db
+      - redis
 
-  db:
-    image: postgres:15
-    container_name: postgres-db_websocket
-    volumes:
-      - postgres_data_websocket:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
+  redis:
+    image: redis:latest
     ports:
-      - 5433:5432
+      - 6379:6379
+    volumes:
+      - ./data/redis:/data
+      - ./redis/redis.conf:/etc/redis.conf
